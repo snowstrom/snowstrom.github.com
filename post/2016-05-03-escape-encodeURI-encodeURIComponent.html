@@ -1,0 +1,33 @@
+<h3>概述</h3>
+<p>avaScript中有三个可以对字符串编码的函数，分别是： escape,encodeURI,encodeURIComponent，相应3个解码函数：unescape,decodeURI,decodeURIComponent。</p>
+<h3>1.escape()函数</h3>
+<p>escape() 函数可对字符串进行编码，这样就可以在所有的计算机上读取该字符串。</p>
+<div style="margin-left: 50px">
+	<div>语法: <span>escape(string)</span></div>
+	<div>参数 string 必须:需要转义或编码的字符串</div>
+	<div> 返回值：已编码的 string 的副本。其中某些字符被替换成了十六进制的转义序列。</div>
+	<p><strong>注意：</strong>该方法不会对 ASCII 字母和数字进行编码，也不会对下面这些 ASCII 标点符号进行编码： - _ . ! ~ * ' ( ) 。其他所有的字符都会被转义序列替换。</p>
+</div>
+<h3>2.encodeURI()函数</h3>
+<p>encodeURI() 函数可把字符串作为 URI 进行编码。</p>
+<div style="margin-left: 50px">
+	<div>语法：<span>encodeURI(URIstring)</span></div>
+	<div>参数：URIstring  ：必需，一个字符串，含有 URI 或其他要编码的文本。 </div>
+	<div>返回值：URIstring 的副本，其中的某些字符将被十六进制的转义序列进行替换。</div>
+	<p><strong>注意：</strong>该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * ' </p>
+	<p>该方法的目的是对 URI 进行完整的编码，因此对以下在 URI 中具有特殊含义的 ASCII 标点符号，encodeURI() 函数是不会进行转义的：;/?:@&=+$,#</p>
+</div>
+<h3>3.encodeURIComponent()</h3>
+<p>encodeURIComponent() 函数可把字符串作为 URI 组件进行编码。</p>
+<div style="margin-left: 50px">
+	<div>语法：encodeURIComponent(URIstring)</div>
+	<div>参数：URIstring  ：必需，表示一个字符串，含有 URI 组件或其他要编码的文本。</div>
+	<div>返回值：URIstring 的副本，其中的某些字符将被十六进制的转义序列进行替换。</div>
+	<p><strong>注意： </strong>该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * '</p>
+</div>
+<h3>总结</h3>
+<p>通过对三个函数的分析，我们可以知道：escape()除了 ASCII 字母、数字和特定的符号外，对传进来的字符串全部进行转义编码，因此如果想对URL编码，最好不要使用此方法。而encodeURI() 用于编码整个URI,因为URI中的合法字符都不会被编码转换。encodeURIComponent方法在编码单个URIComponent（指请求参 数）应当是最常用的，它可以讲参数中的中文、特殊字符进行转义，而不会影响整个URL。</p>
+
+
+
+

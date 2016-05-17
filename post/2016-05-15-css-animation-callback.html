@@ -1,0 +1,82 @@
+<h3>概述</h3>
+<p>我们在做js动画的时候，很多时候都需要做回调处理，如在一个动画完成后触发一个事件、一个动画完成后执行另外一个动画等等，
+	但在使用CSS3动画时能不能捕获到运动的状态做回调处理呢？</p>
+<p>CSS3动画也是可以做回调处理的，这里分为两个属性，一个是transition属性，另一个是animation属性</p>
+<h3>1.transition</h3>
+<p>对于transition，可以监听transitionend事件，当动画完成时触发，可以这样使用：</p>
+<pre class="code">
+	&lt;!DOCTYPE html&gt;
+		&lt;html&gt;
+			&lt;head&gt;
+				&lt;meta charset="utf-8" /&gt;
+				&lt;title&gt;css3-transitioned&lt;/title&gt;
+				&lt;style&gt;
+					*{
+						margin:0;
+						padding:0;
+					}
+					.rect{
+						width:100px;
+						height:100px;
+						background: #f80;
+						transition: all 1s;
+					}
+				&lt;/style&gt;
+			&lt;/head&gt;
+			&lt;body&gt;
+				&lt;div class="rect"&gt;&lt;/div&gt;
+				&lt;script&gt;
+					var _rect =document.querySelector(".rect");
+					_rect.onclick= function () {
+						_rect.style.transform="translateX(300px)";
+					}
+					_rect.addEventListener("transitionend",function(){
+						alert("动画执行完毕！");
+						//do something
+					})
+				&lt;/script&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+</pre>
+<h3>2.animation</h3>
+<p>对于animation我们可以监听animationend事件，示例代码如下:</p>
+<pre class="code">
+ &lt;!DOCTYPE html&gt;
+	&lt;html&gt;
+		&lt;head&gt;
+			&lt;meta charset="UTF-8"&gt;
+			&lt;title&gt;css3-animationend&lt;/title&gt;
+			&lt;style&gt;
+				* {margin: 0; padding: 0;}
+				.rect {
+					position: relative;
+					width: 100px;
+					height: 100px;
+					background-color: #f80;
+				}
+				@keyframes move {
+			          from {
+				          transform: rotate(0deg);
+			          }
+			          to {
+				          transform: rotate(360deg);
+			          }
+		          }
+			&lt;/style&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+			&lt;div class="rect"&gt;&lt;/div&gt;
+			&lt;script&gt;
+				var _rect = document.querySelector('.rect');
+				_rect.onclick = function () {
+					_rect.style.animation = 'move 3s';
+				};
+				_rect.addEventListener("animationend", function () {
+					alert('动画执行完毕！');
+					// do something
+				});
+			&lt;/script&gt;
+		&lt;/body&gt;
+	&lt;/html&gt;
+</pre>
+

@@ -1,0 +1,51 @@
+
+#container p{
+    text-indent: 2em;
+    line-height: 1.5;
+    margin:10px 0;
+    font-family: "Microsoft YaHei";
+    font-size: 1em;
+}
+#container pre.code{
+    padding: 5px;
+    margin: 0;
+    font-family: "Times New Roman";
+    font-size: 1em;
+    overflow: auto;
+    border: solid cadetblue 1px;
+}
+#container div{
+    margin: 5px;
+}
+#container table{
+    width: 100%;
+    margin-top: 30px;
+}
+#container table td{
+    padding: 5px;
+}
+#container .nav_wrap{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 50px;
+}
+#container .nav{
+    float: right;
+    width: 100px;
+    height: 30px;
+    font-size: 1em;
+    border-radius: 10px;
+    outline: none;
+}
+#container li{
+    margin: 5px 0;
+    line-height: 1.5em;
+}
+#container .pageTable{
+    border: solid black 1px;
+    border-collapse: collapse;
+}
+#container .pageTable td,th{
+    border: solid 1px gray;
+}

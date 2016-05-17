@@ -1,0 +1,127 @@
+body{
+    padding:0;
+    margin: 0;
+    overflow: scroll;
+    font-family: "Microsoft YaHei";
+    font-size: 16px;
+}
+a{
+    text-decoration: none;
+}
+a:link,a:visited,a:active{
+    color: black;
+}
+a:hover{
+    text-decoration: underline;
+}
+.header{
+    max-width: 980px;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+    border-bottom: solid gray 1px;
+    font-size: 1.2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+}
+.header #motto{
+    float: left;
+}
+.header ul{
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.header ul li{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.wrap{
+    box-sizing: border-box;
+    width: 980px;
+    margin: 0 auto;
+    padding-top:100px;
+    font-size: 1em;
+    zoom: 1;
+}
+.wrap:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+#aside{
+    box-sizing: border-box;
+    width: 180px;
+    padding: 8px;
+    border: solid gray 1px;
+    border-radius: 10px;
+    float: left;
+}
+#aside div:first-child{
+    border: solid gray 1px;
+    border-radius: 5px;
+    padding: 5px;
+}
+#aside .classifyBox{
+    border: solid gray 1px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+#aside img{
+    width: 120px;
+    height: auto;
+}
+#aside .img{
+    width: 120px;
+    padding: 3px;
+    margin: 0 auto;
+    border: solid gray 1px;
+    border-radius: 3px;
+}
+#aside div:first-child .name{
+    text-align: center;
+}
+#aside h4{
+    text-align: center;
+    margin: 10px;
+    padding-bottom: 5px;
+    font-size: 0.8em;
+    border-bottom: solid gray 1px;
+}
+#container{
+    box-sizing: border-box;
+    width: 790px;
+    padding: 20px;
+    margin-left: 10px;
+    border: solid gray 1px;
+    border-radius: 10px;
+    float: left;
+    word-break: normal;
+    word-wrap: break-word;
+}
+.loading{
+    text-align: center;
+}
+.loading .loadingText{
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.loading img{
+    width: 50px;
+    height: 50px;
+}
+#comment{
+    width: 790px;
+    margin-left: 10px;
+	padding-top:20px;
+    float: right;
+}

@@ -1,0 +1,26 @@
+<div>javascript刷新页面的几种方法：</div>
+<ol>
+	<li>history.go(0)</li>
+	<li>location.reload()</li>
+	<li> location=location</li>
+	<li>location.assign(location)</li>
+	<li>document.execCommand(‘Refresh‘)</li>
+	<li>window.navigate(location)</li>
+	<li>location.replace(location)</li>
+	<li>document.URL=location.href.</li>
+</ol>
+<hr/>
+<div>框架页中：(框架页中其中一个子页)</div>
+<ul>
+	<li>top.location.reload();   刷新整页  </li>
+	<li>self.location.reload();  刷新本页</li>
+	<li>window.parent.location.href='' 框架页重定向 </li>
+</ul>
+<hr/>
+<div>自动刷新页面的方法：</div>
+<pre class="code">
+	&lt;head&gt;区域中&lt;meta http-equiv="refresh" content="20"&gt;//其中20指每隔20秒刷新一次页面.
+	&lt;body onload="opener.location.reload()"&gt; //开窗时刷新
+	&lt;body onUnload="opener.location.reload()"&gt; //关闭时刷新。
+</pre>
+<p></p>

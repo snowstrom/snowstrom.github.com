@@ -1,0 +1,124 @@
+<h3>概述</h3>
+<p>当一个元素只包含浮动元素的时候，它会出现高度折叠(在火狐中是这样，IE9不会),即元素的上下底边重合，和高度为0效果一样，下面是解决这个问题的4种方法。</p>
+<p>原始代码：</p>
+<pre class="code">
+	&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Float&lt;/title&gt;
+		&lt;style type = "text/css"&gt;
+			ul {
+				list-style-type: none;
+				width: 800px;
+				background: blue;
+			}
+			li {
+				float: left;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;img src = "1.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "2.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "3.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "4.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "5.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "6.jpg" /&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+</pre>
+<p>本来ul的背景色被设置成blue，但是由于它出现了高度折叠，所以看不到背景色。 </p>
+<h4>1.给包含元素设置高度height</h4>
+<p>最直接的办法是给包含元素设置一个高度，在本例中就是给ul标签添加height属性，添加后的代码如下:</p>
+<pre class="code">
+	ul {
+list-style-type: none;
+width: 800px;
+background: blue;
+height: 300px; /*添加高度属性*/
+}
+</pre>
+<p>但是这种方法有一个缺点，就是包含元素的高度不能自适应内容。比如我们在添加多个列表项，那么高度又不够了。</p>
+<h3>2.利用overflow属性</h3>
+<p>可以包含元素设置overflow属性，并设置属性值为auto或者hidden，添加后的代码如下:</p>
+<pre class="code">
+	ul {
+list-style-type: none;
+width: 800px;
+background: blue;
+overflow: hidden; /*添加overflow属性，可以设置为auto或者hidden*/
+}
+</pre>
+<p>这种方式没有直接设置height属性的限制，但是当包含元素的overflow属性必须设置为visible时，这种方法失效。 </p>
+<h3>3.添加一个空的div</h3>
+<p>这种方法是添加一个空的div，这个div和浮动元素同一级别，且位于浮动元素的最后。这种方法要改动两个地方，一个是html代码，另一个是必须要为这个div添加一个clear属性：</p>
+<pre class="code">
+	&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Float&lt;/title&gt;
+		&lt;style type = "text/css"&gt;
+			ul {
+				list-style-type: none;
+				width: 800px;
+				background: blue;
+			}
+			li {
+				float: left;
+			}
+			/*为添加的空div设置的样式*/
+			.clearDiv {
+				clear: both;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;img src = "1.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "2.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "3.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "4.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "5.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "6.jpg" /&gt;&lt;/li&gt;
+		&lt;div class = "clearDiv"&gt;&lt;/div&gt; &lt;!--新添加的空div，它和浮动元素同一级别，且位于最后--&gt;
+	&lt;/ul&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+</pre>
+<p>这种方法虽然也能解决高度问题，但是却引入了一个多余的标签div，它这里并不具有实际意义，它的作用只是撑开ul标签而已。</p>
+<h3>4.利用伪元素：after</h3>
+<p>用这种方法时要为包含元素先添加一个类名，这里为ul标签设置的类名.clearUl,代码如下:</p>
+<pre class="code">
+	&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Float&lt;/title&gt;
+		&lt;style type = "text/css"&gt;
+			ul {
+				list-style-type: none;
+				width: 800px;
+				background: blue;
+			}
+			li {
+				float: left;
+			}
+			/*利用:after伪元素*/
+			.clearUl:after {
+				content:"";
+				display: block;
+				clear: both;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;ul class = "clearUl"&gt; &lt;!--为包含的外围元素设置类--&gt;
+		&lt;li&gt;&lt;img src = "1.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "2.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "3.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "4.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "5.jpg" /&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;img src = "6.jpg" /&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+</pre>
+<p>在:after为元素里面用到了content属性，这样这条样式的意思是在ul元素后面生成指定的内容，这里生成的内容是一个空字符串，因为只是让它来消除ul标签的高度折叠，并不让它显示出来。还有，这条样式里有display属性，要将他设置成block，这样clear属性才会起作用，因为清除操作只作用于块级元素，它的原理是为要执行清除操作的元素添加上边距，以此让元素降到浮动元素的下面，而操作行内元素的上边距不起作用。 </p>

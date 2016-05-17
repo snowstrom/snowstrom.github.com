@@ -1,0 +1,24 @@
+<h3>概述</h3>
+<p>分支就是从主线上分离出来进行另外的操作，而又不影响主线，主线又可以继续干它的事，最后分支做完事后合并到主线上而分支的
+	任务完成可以删掉了。主线继续做它的事，分支用来解决临时需求，二者互不相干。</p>
+<p>git的分支功能特别的强大，它不需要将所有数据进行复制，只要重新创建一个分支的指针指向你需要从哪里开始创建分支的提交对
+	象(commit)，然后进行修改再提交，那么新分支的指针就会指向你最新提交的这个commit对象，而原来分支的指针则指向你原来开发
+	的位置，当你在哪个分支开发，HEAD就指向那个分支的最新提交对象commt</p>
+<h3>下面是一些常见的与分支操作有关的命令：</h3>
+<div>创建分支：<span class="code">$git branch mybranch</span></div>
+<div>切换分支：<span class="code"> $ git checkout mybranch</span></div>
+<div>创建并切换分支：<span class="code"></span></div>
+<div>更新master主线上的东西到该分支上：<span class="code">$git rebase master</span></div>
+<div>切换到master分支：<span class="code">$git checkout master</span></div>
+<div>合并分支：<span class="code">$ git merge mybranch (merge from mybranch)</span></div>
+<div>删除分支<span class="code"> $ git branch -d mybranch</span></div>
+<div>强制删除分支<span class="code"> $ git branch -d mybranch</span></div>
+<div>列出所有分支：<span class="code">$ git branch</span></div>
+<div>查看各个分支最后一次提交：<span class="code">$ git branch -v</span></div>
+<div>查看哪些分支合并入当前分支： <span class="code"> $ git branch –merged</span></div>
+<div>查看哪些分支未合并入当前分支：<span class="code">$ git branch –no-merged</span></div>
+<div>更新远程库到本地：<span class="code"> $ git fetch origin</span></div>
+<div>推送分支： <span class="code"> $ git push origin mybranch</span></div>
+<div>取远程分支合并到本地：<span class="code">$ git merge origin/mybranch</span></div>
+<div>取远程分支并分化一个新分支：<span class="code">$ git checkout -b mybranch origin/mybranch</span></div>
+<div>删除远程分支：<span class="code">$ git push origin :mybranch</span></div>
