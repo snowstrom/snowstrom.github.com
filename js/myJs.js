@@ -4,7 +4,6 @@
 window.onload= function () {
     var cache={};  //缓存博客页面和目录列表JSON
     var Tags={}; //分类列表，属性名为分类名，属性值为此分类的数量
-    var comment = document.getElementById("SOHUCS");//获取搜狐畅言的配置元素
 
     /*
      * 此函数被绑定到主页面对象上，用于响应“返回主页”按钮的单击事件，以返回目录列表
@@ -43,7 +42,6 @@ window.onload= function () {
             loading();
             ajaxReauest(url+".html","GET",'',rendBlog);
             ajaxReauest("post/index.json",'GET','',initTags);  //重新请求目录列表文件以渲染分类列表
-            comment.setAttribute("sid",url.substr(-5));
         }
     }
     //添加loading效果：
